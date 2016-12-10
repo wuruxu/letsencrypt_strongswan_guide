@@ -22,14 +22,20 @@
 # git clone https://github.com/Neilpang/acme.sh
 ```
 
-#### [ECDSA certiifcate](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) - recommend
+##### [ECDSA certiifcate](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) - recommend
 ```
 # ./acme.sh --issue --standalone -d xyz.wuruxu.com --keylength ec-384
 
 ```
-#### [RSA certificate](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+##### [RSA certificate](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 ```
 # ./acme.sh --issue --standalone -d xyz.wuruxu.com --keylength 4096
+```
+#### 1.2.2 install certificates in strongswan
+```
+# cp ca.cert    /etc/ipsec.d/cacerts/acme.ca.cer
+# cp fullchain.cer  /etc/ipsec.d/certs/acme_xyz_server.cert.pem
+# cp xyz.wuruxu.com.key  /etc/ipsec.d/private/acme_xyz_ecc.pem
 ```
 ###1.3 Configure strongswan
 ##### 1.3.1 /etc/ipsec.conf
@@ -63,8 +69,7 @@ conn %default
 ```
 #### 1.3.2 /etc/ipsec.secrets
 ```
-: RSA vpn.mydomain.com.key
-: ECDSA acme_ec6_ecc.pem
+: ECDSA acme_xyz_ecc.pem
 user : EAP "userpasswd"
 ```
 #### 1.3.3 /etc/sysctl.conf
@@ -91,3 +96,6 @@ enable sysctl rules
 ```
 ## 2. Client Configuration
 ![support platfom](res/images/platform-all.png)
+[Window 7+](https://wiki.strongswan.org/projects/strongswan/wiki/Windows7#C)
+[iOS & MAC OSX](https://wiki.strongswan.org/projects/strongswan/wiki/AppleClients)
+[Android 4+](https://wiki.strongswan.org/projects/strongswan/wiki/AndroidVPNClient)
