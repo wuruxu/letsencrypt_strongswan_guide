@@ -90,3 +90,4 @@ enable sysctl rules
 # ipsec start
 ```
 ## 2. Client Configuration
+![support platfom](res/images/platform-all.png)
