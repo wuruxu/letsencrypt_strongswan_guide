@@ -99,3 +99,68 @@ enable sysctl rules
 * [Window 7+](https://wiki.strongswan.org/projects/strongswan/wiki/Windows7#C)
 * [iOS & MAC OSX](https://wiki.strongswan.org/projects/strongswan/wiki/AppleClients)
 * [Android 4+](https://wiki.strongswan.org/projects/strongswan/wiki/AndroidVPNClient)
+* Linux       
+
+#### 1. install strongswan (same options as above)
+```
+#./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var CFLAGS=-O2 --enable-dnscert --enable-ccm --enable-chapoly --enable-ctr --enable-gcm --enable-rdrand --enable-aesni --enable-vici --enable-swanctl --disable-ikev1 --enable-newhope --enable-mgf1 --enable-sha3 --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-pubkey --enable-pkcs11 --enable-openssl
+```
+#### 2. config strongswan
+##### 2.1 /etc/ipsec.secrets
+```
+# /etc/ipsec.secrets - strongSwan IPsec secrets file
+
+user : EAP "userpasswd"
+
+```
+##### 2.2 /etc/ipsec.conf
+```
+# ipsec.conf - strongSwan IPsec configuration file
+
+# basic configuration
+
+config setup
+  strictcrlpolicy=no
+  uniqueids = never
+
+conn %default
+  ikelifetime=3h
+  keylife=60m
+  rekeymargin=9m
+  keyingtries=3
+  keyexchange=ikev2
+  ike=aes256-sha512-modp4096,aes128-sha512-modp4096,aes256ccm96-sha384-modp2048,aes256-sha256-modp2048,aes128-sha256-modp2048,aes128-sha1-modp2048!
+  esp=aes256gcm128,aes128gcm128,aes256ccm128,aes256
+
+conn ec3
+  left=%any
+  leftfirewall=yes
+  leftauth=eap-mschapv2
+  leftsourceip=%config4
+  eap_identity=user  #same as /etc/ipsec.secrets
+  right=xyz.wuruxu.com
+  rightauth=pubkey
+  rightid=xyz.wuruxu.com
+  rightsubnet=0.0.0.0/0
+  auto=add
+  
+conn local-net
+  leftsubnet=192.168.108.0/24
+  rightsubnet=192.168.108.0/24
+  authby=never
+  type=pass
+  auto=route
+
+conn local-net2
+  leftsubnet=192.168.128.0/24
+  rightsubnet=192.168.128.0/24
+  authby=never
+  type=pass
+  auto=route
+
+```
+##### 2.3 start up connection ec3
+```
+# ipsec start
+# ipsec up ec3
+```
