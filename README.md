@@ -95,7 +95,7 @@ enable sysctl rules
 # ipsec start
 ```
 ## 2. Client Configuration
-![support platfom](res/images/platform-all.png)
-[Window 7+](https://wiki.strongswan.org/projects/strongswan/wiki/Windows7#C)
-[iOS & MAC OSX](https://wiki.strongswan.org/projects/strongswan/wiki/AppleClients)
-[Android 4+](https://wiki.strongswan.org/projects/strongswan/wiki/AndroidVPNClient)
+![support platfom](res/images/platform-all.png)      
+* [Window 7+](https://wiki.strongswan.org/projects/strongswan/wiki/Windows7#C)
+* [iOS & MAC OSX](https://wiki.strongswan.org/projects/strongswan/wiki/AppleClients)
+* [Android 4+](https://wiki.strongswan.org/projects/strongswan/wiki/AndroidVPNClient)
