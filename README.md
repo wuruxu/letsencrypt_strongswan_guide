@@ -105,6 +105,10 @@ enable sysctl rules
 ```
 #./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var CFLAGS=-O2 --enable-dnscert --enable-ccm --enable-chapoly --enable-ctr --enable-gcm --enable-rdrand --enable-aesni --enable-vici --enable-swanctl --disable-ikev1 --enable-newhope --enable-mgf1 --enable-sha3 --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-pubkey --enable-pkcs11 --enable-openssl
 ```
+#### install DST Root CA
+```
+$ cp /etc/ssl/certs/DST_Root_CA_X3.pem /etc/ipsec.d/cacerts/
+```
 #### 2. config strongswan
 ##### 2.1 /etc/ipsec.secrets
 ```
