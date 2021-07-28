@@ -1,6 +1,6 @@
 # letsencrypt_strongswan_guide
 
-[![letsencrypt](res/images/letsencrypt-logo-horizontal.png)](https://letsencrypt.org/) ![puls](res/images/add-symbolic.symbolic.png) [![strongswan](res/images/strongswan.png)](https://strongswan.org/)
+[![letsencrypt](res/images/letsencrypt-logo-horizontal.png)](https://letsencrypt.org/) ![puls](res/images/add-symbolic.symbolic.png) [![strongswan](res/images/strongswan.png)](https://strongswan.org/)           
 ##Requirement
 * A domain name: for example **xyz.wuruxu.com** and resolve to VPS public IP
 * VPS: [Linode VPS](https://www.linode.com/?r=0bc6a0c838d110075a691b29f2c49d9e90ce2eed)
@@ -29,10 +29,11 @@
 ```
 ##### [RSA certificate](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 ```
-# ./acme.sh --issue --standalone -d xyz.wuruxu.com --keylength 4096
+# ./acme.sh --issue --standalone -d xyz.wuruxu.com --keylength 4096 --server letsencrypt
 ```
 #### 1.2.2 install certificates in strongswan
 ```
+# cp ca.cer /etc/ipsec.d/cacerts/
 # cp fullchain.cer  /etc/ipsec.d/certs/acme_xyz_server.cert.pem
 # cp xyz.wuruxu.com.key  /etc/ipsec.d/private/acme_xyz_ecc.pem
 ```
