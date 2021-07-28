@@ -24,7 +24,7 @@
 
 ##### [ECDSA certiifcate](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) - recommend
 ```
-# ./acme.sh --issue --standalone -d xyz.wuruxu.com --keylength ec-384
+# ./acme.sh --issue --standalone -d xyz.wuruxu.com --keylength ec-384 --server letsencrypt
 
 ```
 ##### [RSA certificate](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
@@ -33,7 +33,6 @@
 ```
 #### 1.2.2 install certificates in strongswan
 ```
-# cp ca.cert    /etc/ipsec.d/cacerts/acme.ca.cer
 # cp fullchain.cer  /etc/ipsec.d/certs/acme_xyz_server.cert.pem
 # cp xyz.wuruxu.com.key  /etc/ipsec.d/private/acme_xyz_ecc.pem
 ```
