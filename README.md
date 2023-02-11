@@ -168,3 +168,8 @@ conn local-net2
 # ipsec start
 # ipsec up ec3
 ```
+##### NOTES: mtu size issue on linux platform #####
+edit /etc/strongswan.d/charon/kernel-netlink.conf to change mtu size from 0 to 1280
+```
+mtu = 1280
+```
