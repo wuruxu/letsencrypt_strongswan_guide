@@ -134,7 +134,7 @@ conn %default
   rekeymargin=9m
   keyingtries=3
   keyexchange=ikev2
-  ike=aes256-sha512-modp4096,aes128-sha512-modp4096,aes256ccm96-sha384-modp2048,aes256-sha256-modp2048,aes128-sha256-modp2048,aes128-sha1-modp2048!
+  ike=chacha20poly1305-sha512-x25519,aes256-sha512-modp4096,aes128-sha512-modp4096,aes256ccm96-sha384-modp2048,aes256-sha256-modp2048,aes128-sha256-modp2048,aes128-sha1-modp2048!
   esp=aes256gcm128,aes128gcm128,aes256ccm128,aes256
 
 conn ec4
