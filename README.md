@@ -57,7 +57,9 @@ conn %default
   ike=chacha20poly1305-sha512-newhope128,chacha20poly1305-sha512-x25519,aes256-sha512-modp2048,aes128-sha512-modp2048,aes256ccm96-sha384-modp2048,aes256-sha256-modp2048,aes128-sha256-modp2048,aes128-sha1-modp2048!
   esp=chacha20poly1305,aes256gcm128,aes128gcm128,aes256ccm128,aes256
   
- conn myvpn
+  
+ # IPv4 connection server config
+ conn ec4
   leftsendcert=always
   leftcert=acme_xyz_server.cert.pem
   leftid=xyz.wuruxu.cn //same as certificate domain name
@@ -66,6 +68,19 @@ conn %default
   rightsourceip=10.18.0.0/24
   rightsendcert=never
   eap_identity=%any
+  auto=add
+ 
+# IPv6 connection server config
+conn ec6
+  leftsendcert=always
+  leftcert=nginx.ssl.ipv6.wuruxu.ecc.cer
+  leftid=@ipv6.wuruxu.cn
+  leftsubnet=0.0.0.0/0,::/0
+  rightauth=eap-mschapv2
+  rightsourceip=2001:0909:1818:2d18:1::/80,10.128.0.0/24
+  rightdns=2001:4860:4860::8888,1.1.1.1
+  rightsendcert=never
+  eap_identity=%identity
   auto=add
 ```
 #### 1.3.2 /etc/ipsec.secrets
