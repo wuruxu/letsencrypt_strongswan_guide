@@ -114,7 +114,9 @@ enable sysctl rules
 ![support platfom](res/images/platform-all.png)      
 * [Window 7+](https://wiki.strongswan.org/projects/strongswan/wiki/Windows7#C)
 * [iOS & MAC OSX](https://wiki.strongswan.org/projects/strongswan/wiki/AppleClients)
-* [Android 4+](https://wiki.strongswan.org/projects/strongswan/wiki/AndroidVPNClient)
+* [Android 4+](https://wiki.strongswan.org/projects/strongswan/wiki/AndroidVPNClient)    
+##### additional NOTES:  #####
+![Advance Config](res/images/android-strongswan-config.jpg)
 * Linux       
 
 #### 1. install strongswan on linux platform(same options as above)
