@@ -168,14 +168,14 @@ conn ec4
   rightsubnet=0.0.0.0/0
   auto=add
   
-conn local-net
+conn net0
   leftsubnet=192.168.0.0/16
   rightsubnet=192.168.0.0/16
   authby=never
   type=pass
   auto=route
 
-conn local-net
+conn net1
   leftsubnet=10.0.0.0/8
   rightsubnet=10.0.0.0/8
   authby=never
