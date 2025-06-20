@@ -3,7 +3,7 @@
 [![letsencrypt](res/images/letsencrypt-logo-horizontal.png)](https://letsencrypt.org/) ![puls](res/images/add-symbolic.symbolic.png) [![strongswan](res/images/strongswan.png)](https://strongswan.org/)           
 ##Requirement
 * A domain name: for example **xyz.wuruxu.cn** and resolve to VPS public IP
-* VPS: [Linode VPS](https://www.linode.com/?r=0bc6a0c838d110075a691b29f2c49d9e90ce2eed)
+* VPS: [digitalocean droplets](https://m.do.co/c/e7e1a9f66991)
 * Ports 4500/UDP, 500/UDP, 51/UDP and 50/UDP opened in the firewall
 
 ## 1. Setup VPN Server
